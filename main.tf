@@ -9,6 +9,8 @@ locals {
 }
 
 resource "aws_acm_certificate" "this" {
+  provider = aws.acm
+
   count = var.create_certificate ? 1 : 0
 
   domain_name               = var.domain_name
@@ -27,6 +29,8 @@ resource "aws_acm_certificate" "this" {
 }
 
 resource "aws_route53_record" "validation" {
+  provider = aws.dns
+
   count = var.create_certificate && var.validation_method == "DNS" && var.validate_certificate ? length(local.distinct_domain_names) : 0
 
   zone_id = var.zone_id
@@ -44,6 +48,8 @@ resource "aws_route53_record" "validation" {
 }
 
 resource "aws_acm_certificate_validation" "this" {
+  provider = aws.acm
+
   count = var.create_certificate && var.validation_method == "DNS" && var.validate_certificate && var.wait_for_validation ? 1 : 0
 
   certificate_arn = aws_acm_certificate.this[0].arn
