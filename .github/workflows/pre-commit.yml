@@ -22,7 +22,7 @@ jobs:
 
       - name: Terraform min/max versions
         id: minMax
-        uses: clowdhaus/terraform-min-max@dffb0ed05b6a6c1c4469812a03d5a33bf6392768 # v1.0.1
+        uses: chainguard-actions/clowdhaus-terraform-min-max@c4cdbdb6aeb51968d4e2a86ab99bc8ddc96d2e49 # v1.0.1
     outputs:
       minVersion: ${{ steps.minMax.outputs.minVersion }}
       maxVersion: ${{ steps.minMax.outputs.maxVersion }}
