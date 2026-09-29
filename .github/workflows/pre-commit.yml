@@ -51,7 +51,7 @@ jobs:
         uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e # v2.3.4
 
       - name: Install Terraform v${{ matrix.version }}
-        uses: hashicorp/setup-terraform@ed3a0531877aca392eb870f440d9ae7aba83a6bd # v1.4.0
+        uses: chainguard-actions/hashicorp-setup-terraform@33b7c5b436b982d28e819b644c84aa9f63c324f4 # v4.0.1
         with:
           terraform_version: ${{ matrix.version }}
 
