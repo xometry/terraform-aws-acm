@@ -54,6 +54,7 @@ jobs:
         uses: chainguard-actions/hashicorp-setup-terraform@33b7c5b436b982d28e819b644c84aa9f63c324f4 # v4.0.1
         with:
           terraform_version: ${{ matrix.version }}
+          terraform_wrapper: false
 
       - name: Install pre-commit dependencies
         run: |
